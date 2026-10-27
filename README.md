@@ -27,7 +27,19 @@ No hay recargas automáticas, reintentos agresivos ni impresiones artificiales.
 Si una unidad no carga, la página sigue siendo navegable y el contenedor no
 rompe el diseño.
 
-La aplicación Android no muestra publicidad de terceros en esta versión.
+La aplicación Android carga páginas dedicadas del mismo sitio aprobado:
+`ad-banner.html` para el banner 320×50 y `ad-native.html?app=1` para una tarjeta
+nativa compacta. No se inyecta la etiqueta en un documento local ni se falsifica
+el origen, el User-Agent o las métricas. El banner se omite en WebView anteriores
+a la versión principal 100 y se retira si no hay creatividad visible; el anuncio
+nativo se oculta si el proveedor no devuelve contenido. La app sigue funcionando
+aunque la publicidad falle.
+
+El propietario de ParFlix autorizó el uso de las unidades web en WebView bajo su
+responsabilidad. Adsterra no ha emitido una aprobación escrita específica para
+este uso. Los códigos se insertan sin modificar sus claves ni su funcionamiento
+interno. No hay recargas automáticas, reintentos agresivos ni impresiones
+artificiales.
 
 ## app-ads.txt / ads.txt
 
