@@ -23,9 +23,26 @@
       max-width: 100%;
       border: 0;
     }
+
+    /* Variante compacta para la app: una sola tarjeta nativa, sin el feed
+       completo de varias tarjetas. El sitio web conserva el formato completo. */
+    .app #container-0b49e206ab92aabeebe7d6c0c2ac4ebd
+      .container-0b49e206ab92aabeebe7d6c0c2ac4ebd__bn-container {
+      display: none !important;
+    }
+
+    .app #container-0b49e206ab92aabeebe7d6c0c2ac4ebd
+      .container-0b49e206ab92aabeebe7d6c0c2ac4ebd__bn-container:first-of-type {
+      display: block !important;
+    }
   </style>
 </head>
 <body>
+  <script>
+    if (window.location.search.indexOf("app=1") !== -1) {
+      document.documentElement.classList.add("app");
+    }
+  </script>
   <script async data-cfasync="false" src="https://bancadeltempoidea.org/21/0b49e206ab92aabeebe7d6c0c2ac4ebd"></script>
   <div id="container-0b49e206ab92aabeebe7d6c0c2ac4ebd"></div>
 </body>
