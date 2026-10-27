@@ -41,6 +41,30 @@
   <script>
     if (window.location.search.indexOf("app=1") !== -1) {
       document.documentElement.classList.add("app");
+
+      // La app muestra una sola tarjeta nativa. Se retiran las tarjetas
+      // adicionales del feed para no cargar creatividades que el usuario no ve
+      // y para reducir el consumo de memoria en WebView antiguas.
+      window.addEventListener("DOMContentLoaded", function () {
+        var container = document.getElementById("container-0b49e206ab92aabeebe7d6c0c2ac4ebd");
+        if (!container) return;
+
+        var prune = function () {
+          var cards = container.querySelectorAll(
+            ".container-0b49e206ab92aabeebe7d6c0c2ac4ebd__bn-container"
+          );
+          for (var i = 1; i < cards.length; i++) {
+            cards[i].remove();
+          }
+        };
+
+        var observer = new MutationObserver(prune);
+        observer.observe(container, { childList: true, subtree: true });
+        window.setTimeout(function () {
+          prune();
+          observer.disconnect();
+        }, 10000);
+      });
     }
   </script>
   <script async data-cfasync="false" src="https://bancadeltempoidea.org/21/0b49e206ab92aabeebe7d6c0c2ac4ebd"></script>
